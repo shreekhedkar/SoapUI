@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="b9f5dabb-7cbe-49f3-ae29-74e856e54e1a" name="WithoutPropertyTransferTestSuite" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="b9f5dabb-7cbe-49f3-ae29-74e856e54e1afileName">WithoutPropertyTransferTestSuite</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

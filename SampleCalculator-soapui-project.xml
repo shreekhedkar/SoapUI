@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2994e3ee-1afd-484c-be7c-d151093e4e99" activeEnvironment="Default" name="SampleCalculator" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="bf811c4f-ca1a-49cf-894f-631cb1582a48" wsaVersion="NONE" name="Calculator_x0020_Web_x0020_ServiceSoap" type="wsdl" bindingName="{http://tempuri.org/}Calculator_x0020_Web_x0020_ServiceSoap" soapVersion="1_1" anonymous="optional" definition="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL"><con:part><con:url>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Performs simple math over the Web</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Subtract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubtractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubtractResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add"/>
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubtractSoapIn">
+    <wsdl:part name="parameters" element="tns:Subtract"/>
+  </wsdl:message>
+  <wsdl:message name="SubtractSoapOut">
+    <wsdl:part name="parameters" element="tns:SubtractResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Calculator_x0020_Web_x0020_ServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:documentation>Computes the sum of two integers</wsdl:documentation>
+      <wsdl:input message="tns:AddSoapIn"/>
+      <wsdl:output message="tns:AddSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <wsdl:documentation>Computes the difference between two integers</wsdl:documentation>
+      <wsdl:input message="tns:SubtractSoapIn"/>
+      <wsdl:output message="tns:SubtractSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Calculator_x0020_Web_x0020_ServiceSoap" type="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://tempuri.org/Add" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap:operation soapAction="http://tempuri.org/Subtract" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Calculator_x0020_Web_x0020_ServiceSoap12" type="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/Add" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/Subtract" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Calculator_x0020_Web_x0020_Service">
+    <wsdl:documentation>Performs simple math over the Web</wsdl:documentation>
+    <wsdl:port name="Calculator_x0020_Web_x0020_ServiceSoap" binding="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+      <soap:address location="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="Calculator_x0020_Web_x0020_ServiceSoap12" binding="tns:Calculator_x0020_Web_x0020_ServiceSoap12">
+      <soap12:address location="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint></con:endpoints><con:operation id="ce6999c6-cfb6-419d-b80c-0266fb41297a" isOneWay="false" action="http://tempuri.org/Add" name="Add" bindingOperationName="Add" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f69c1858-1b85-41ae-887c-eb572ab6ed92" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Add>\r
+         <tem:a>?</tem:a>\r
+         <tem:b>?</tem:b>\r
+      </tem:Add>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Add"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5f532cee-4f06-4c0a-b857-8e8fe556926d" isOneWay="false" action="http://tempuri.org/Subtract" name="Subtract" bindingOperationName="Subtract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b59839b2-5b28-4c7d-a073-6dfffdbd74a1" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Subtract>\r
+         <tem:a>?</tem:a>\r
+         <tem:b>?</tem:b>\r
+      </tem:Subtract>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Subtract"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="ef78c0cc-1ca1-4792-8913-c52794d2fcb9" wsaVersion="NONE" name="Calculator_x0020_Web_x0020_ServiceSoap12" type="wsdl" bindingName="{http://tempuri.org/}Calculator_x0020_Web_x0020_ServiceSoap12" soapVersion="1_2" anonymous="optional" definition="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL"><con:part><con:url>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://tempuri.org/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>Performs simple math over the Web</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Subtract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="a" type="s:int"/>
+            <s:element minOccurs="1" maxOccurs="1" name="b" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubtractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SubtractResult" type="s:int"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddSoapIn">
+    <wsdl:part name="parameters" element="tns:Add"/>
+  </wsdl:message>
+  <wsdl:message name="AddSoapOut">
+    <wsdl:part name="parameters" element="tns:AddResponse"/>
+  </wsdl:message>
+  <wsdl:message name="SubtractSoapIn">
+    <wsdl:part name="parameters" element="tns:Subtract"/>
+  </wsdl:message>
+  <wsdl:message name="SubtractSoapOut">
+    <wsdl:part name="parameters" element="tns:SubtractResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Calculator_x0020_Web_x0020_ServiceSoap">
+    <wsdl:operation name="Add">
+      <wsdl:documentation>Computes the sum of two integers</wsdl:documentation>
+      <wsdl:input message="tns:AddSoapIn"/>
+      <wsdl:output message="tns:AddSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <wsdl:documentation>Computes the difference between two integers</wsdl:documentation>
+      <wsdl:input message="tns:SubtractSoapIn"/>
+      <wsdl:output message="tns:SubtractSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Calculator_x0020_Web_x0020_ServiceSoap" type="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://tempuri.org/Add" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap:operation soapAction="http://tempuri.org/Subtract" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Calculator_x0020_Web_x0020_ServiceSoap12" type="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://tempuri.org/Add" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Subtract">
+      <soap12:operation soapAction="http://tempuri.org/Subtract" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Calculator_x0020_Web_x0020_Service">
+    <wsdl:documentation>Performs simple math over the Web</wsdl:documentation>
+    <wsdl:port name="Calculator_x0020_Web_x0020_ServiceSoap" binding="tns:Calculator_x0020_Web_x0020_ServiceSoap">
+      <soap:address location="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="Calculator_x0020_Web_x0020_ServiceSoap12" binding="tns:Calculator_x0020_Web_x0020_ServiceSoap12">
+      <soap12:address location="https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint></con:endpoints><con:operation id="c88b5fc5-0938-43cc-ad5b-2e42e7d30571" isOneWay="false" action="http://tempuri.org/Add" name="Add" bindingOperationName="Add" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="efc0d321-22d3-41cb-a524-51fcf00bdf1a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>1</tem:a>\r
+         <tem:b>2</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Calculator_x0020_Web_x0020_ServiceSoap/AddRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="009ef958-6f20-4d52-939a-0ba09e1aacd3" isOneWay="false" action="http://tempuri.org/Subtract" name="Subtract" bindingOperationName="Subtract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5b02b8a4-d3a7-418d-bcda-a9408a5c6c3a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>?</tem:a>\r
+         <tem:b>?</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://tempuri.org/Calculator_x0020_Web_x0020_ServiceSoap/SubtractRequest"/></con:call></con:operation></con:interface><con:testSuite id="1abaa6ea-9d12-46e0-a109-1b3ca633c5cd" name="CalculatorTesting12"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="063a1b8e-8086-4b0f-ab98-bc8279e77a6e" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddFunction" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="ae3e6cbc-6c29-4566-84ac-3997448a8641"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>${#TestCase#no1}</tem:a>\r
+         <tem:b>3</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains"><con:configuration><token>5</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="2ea371d9-a1cc-4704-9369-bc107edd0805"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>no1</con:name><con:value>100</con:value></con:property><con:property><con:name>no2</con:name><con:value>200</con:value></con:property></con:properties><con:securityTest id="89d3628e-ac12-43ca-ae0a-695b1b263acd" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:testCase id="edf88ae9-e54a-4587-b5c9-104bfa89daa6" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subtract" searchProperties="true"><con:settings/><con:testStep type="request" name="SubFunction" id="56ea60b2-d4f2-46c8-88a6-dfc5a32d8b84"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>3</tem:a>\r
+         <tem:b>1</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match"><con:configuration><path/><content/><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="055a2b37-dcb5-4a60-a14b-07cb2504a627" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="b2d14ef4-76f2-429f-bc48-ce87fefec113" name="PropertiesTestStepCalculatorTesting12"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="99f5add6-7ace-4044-9869-df32fee2a2ca" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddFunction-Properties-TestCaseLevel" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="b97a5b79-0424-4517-a4f0-8cfe58289829"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a></tem:a>\r
+         <tem:b>${Properties#no2}</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains" disabled="true"><con:configuration><token>51</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="bd22c346-6198-4eb1-ae5f-3bfe61865f12"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="XPath Match" id="c24ce41f-ab5e-47a3-8dfe-0ca69f287582" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="Properties" id="138b87e0-d793-4134-8c82-90628661d937"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>no2</con:name><con:value>10</con:value></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>no1</con:name><con:value>10</con:value></con:property></con:properties><con:securityTest id="7c2ed09e-9f09-4e9c-b5d3-1441e8bc9fb7" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:testCase id="b754b468-f5d7-4b64-8fce-df4fd8578980" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subtract" searchProperties="true"><con:settings/><con:testStep type="request" name="SubFunction-Properties-TestSuiteLevel" id="589970a9-ef4d-47fb-abec-b32dabd101c5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction-Properties-TestSuiteLevel" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>${#TestSuite#first}</tem:a>\r
+         <tem:b>${#TestSuite#second}</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match"><con:configuration><path>declare namespace ns1='http://tempuri.org/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:SubtractResponse</path><content>&lt;SubtractResponse xmlns="http://tempuri.org/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  &lt;SubtractResult>2*&lt;/SubtractResult>
+&lt;/SubtractResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="9aa0c56f-7ef1-41cf-be2f-7d4d43e7deca" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties><con:property><con:name>first</con:name><con:value>40</con:value></con:property><con:property><con:name>second</con:name><con:value>20</con:value></con:property></con:properties></con:testSuite><con:testSuite id="df14a9c3-9d3d-4932-a624-c9774c455126" name="ExternalPropertiesCalculatorTesting"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="be59f007-6e3e-460c-8864-5225a6cfbb91" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddFunction" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="5f2c4043-0a82-4796-b9bf-16ce54a9ade5"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>?</tem:a>\r
+         <tem:b>?</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains" disabled="true"><con:configuration><token>51</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="bd22c346-6198-4eb1-ae5f-3bfe61865f12"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="XPath Match" id="c24ce41f-ab5e-47a3-8dfe-0ca69f287582" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>no1</con:name><con:value>10</con:value></con:property></con:properties><con:securityTest id="6d59ca59-eed1-4f61-8ae9-438029277826" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:testCase id="ddf62cca-ee6e-4a60-af0b-50cceab9a63d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subtract" searchProperties="true"><con:settings/><con:testStep type="request" name="SubFunction" id="cb44212c-f119-41e9-94f5-30256119a5dc"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>${#TestSuite#first}</tem:a>\r
+         <tem:b>${#TestSuite#}</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match"><con:configuration><path>declare namespace ns1='http://tempuri.org/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:SubtractResponse</path><content>&lt;SubtractResponse xmlns="http://tempuri.org/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  &lt;SubtractResult>2*&lt;/SubtractResult>
+&lt;/SubtractResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="f9be7fa4-0490-4f67-851f-8776ddd47626" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties><con:property><con:name>no1</con:name><con:value>100</con:value></con:property><con:property><con:name>no2</con:name><con:value>200</con:value></con:property></con:properties></con:testSuite><con:testSuite id="20fe9041-9c1e-4688-8cdc-552e82701d4f" name="PropertyTransferTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="9f8ff274-d31c-4d83-bb66-503e10f0ef83" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="E2ECases" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="8d3baffe-28ec-45a2-a1b0-0e7f5ab3f64c"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>2</tem:a>\r
+         <tem:b>22</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains" disabled="true"><con:configuration><token>51</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="bd22c346-6198-4eb1-ae5f-3bfe61865f12"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA" disabled="true"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="XPath Match" id="c24ce41f-ab5e-47a3-8dfe-0ca69f287582" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="c51aeea6-9fad-408e-a344-331b511ba324"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>Transfer</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>AddRequest</con:sourceStep><con:sourcePath>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddResult</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>SubFunction</con:targetStep><con:targetPath>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:a</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="SubFunction" id="5e46579e-b05f-4232-868d-729032530840"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+   <soap:Header/>
+   <soap:Body>
+      <tem:Subtract>
+         <tem:a>24</tem:a>
+         <tem:b>10</tem:b>
+      </tem:Subtract>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match" disabled="true"><con:configuration><path>declare namespace ns1='http://tempuri.org/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:SubtractResponse</path><content>&lt;SubtractResponse xmlns="http://tempuri.org/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  &lt;SubtractResult>2*&lt;/SubtractResult>
+&lt;/SubtractResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>no1</con:name><con:value>10</con:value></con:property></con:properties><con:securityTest id="3bb04c58-058d-4fa5-85c1-f2bf200c5959" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:properties/></con:testSuite><con:testSuite id="b9f5dabb-7cbe-49f3-ae29-74e856e54e1a" name="WithoutPropertyTransferTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="e62622c4-bc2d-4d54-b35f-e08f12b7ed8c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="E2ECases" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="efeb2ef3-2788-4b45-a7cb-275abfb378c6"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>22</tem:a>\r
+         <tem:b>22</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains" disabled="true"><con:configuration><token>51</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="bd22c346-6198-4eb1-ae5f-3bfe61865f12"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA" disabled="true"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:assertion type="XPath Match" id="c24ce41f-ab5e-47a3-8dfe-0ca69f287582" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="854caeea-9722-4874-961f-98b27c32e6fa" disabled="true"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>Transfer</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>AddRequest</con:sourceStep><con:sourcePath>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddResult</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>SubFunction</con:targetStep><con:targetPath>declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+declare namespace ns1='http://tempuri.org/';
+//ns1:a</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" name="SubFunction" id="6116fdab-2417-4350-87d6-3ee77fc715d4"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">
+   <soap:Header/>
+   <soap:Body>
+      <tem:Subtract>
+         <tem:a>${AddRequest#Request#//tem:a/text()}</tem:a>
+         <tem:b>10</tem:b>
+      </tem:Subtract>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match" disabled="true"><con:configuration><path>declare namespace ns1='http://tempuri.org/';
+declare namespace soap='http://www.w3.org/2003/05/soap-envelope';
+//ns1:SubtractResponse</path><content>&lt;SubtractResponse xmlns="http://tempuri.org/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  &lt;SubtractResult>2*&lt;/SubtractResult>
+&lt;/SubtractResponse></content><allowWildcards>true</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties><con:property><con:name>no1</con:name><con:value>10</con:value></con:property></con:properties><con:securityTest id="b85951dc-64e6-4f40-a065-320a86a0ff92" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:properties/></con:testSuite><con:testSuite id="2250a397-a227-48ce-8950-830af92383dd" name="Security Testing CalculatorTesting12"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="abb8894d-0c01-4778-b3db-94d4f644e503" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddFunction" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="42620845-a4c3-4657-b94a-1bc0df8b8a64"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>2</tem:a>\r
+         <tem:b>3</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains"><con:configuration><token>5</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="0e1adb22-eb45-4af2-960f-1183d7c5f0f2"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:securityTest id="946a44c4-1f13-4a8b-acfa-04f3ee89ebfd" name="SecurityTest 1" failOnError="true"><con:settings><con:setting id="com.eviware.soapui.security.log.JSecurityTestRunLog$OptionsForm@max_rows">1000</con:setting><con:setting id="com.eviware.soapui.security.log.JSecurityTestRunLog$OptionsForm@errors_only">false</con:setting></con:settings><con:testStepSecurityTest><con:testStepId>42620845-a4c3-4657-b94a-1bc0df8b8a64</con:testStepId><con:testStepSecurityScan type="CrossSiteScriptingScan" name="Cross Site Scripting" id="74adee4a-9ac3-4332-91b2-95772caaad5f" applyForFailedStep="false" disabled="false" runOnlyOnce="true"><con:settings/><con:config xsi:type="con:CrossSiteScriptingScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameterExposureStrings>&lt;PLAINTEXT></con:parameterExposureStrings><con:parameterExposureStrings>';alert(String.fromCharCode(88,83,83))//\';alert(String.fromCharCode(88,83,83))//";alert(String.fromCharCode(88,83,83))//\";alert(String.fromCharCode(88,83,83))//-->&lt;/SCRIPT>">'>&lt;SCRIPT>alert(String.fromCharCode(88,83,83))&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>'';!--"&lt;XSS>=&amp;{()}</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=http://soapui.org/xss.js>&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=JaVaScRiPt:alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=`javascript:alert("RSnake says, 'XSS'")`></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG """>&lt;SCRIPT>alert("XSS")&lt;/SCRIPT>"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=javascript:alert(String.fromCharCode(88,83,83))></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>]]></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav	ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x09;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x0A;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="jav&amp;#x0D;ascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>perl -e 'print "&lt;IMG SRC=java\0script:alert(\"XSS\")>";' > out</con:parameterExposureStrings><con:parameterExposureStrings>perl -e 'print "&lt;SCR\0IPT>alert(\"XSS\")&lt;/SCR\0IPT>";' > out</con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC=" &amp;#14;  javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT/XSS SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY onload!#$%&amp;()*~+-_.,:;?@[/|\]^`=alert("XSS")></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT/SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;&lt;SCRIPT>alert("XSS");//&lt;&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=http://soapui.org/xss.js?&lt;B></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC=//ha.ckers.org/.j></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="javascript:alert('XSS')"</con:parameterExposureStrings><con:parameterExposureStrings>&lt;iframe src=http://soapui.org/scriptlet.html &lt;</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT>a=/XSS/alert(a.source)&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>\";alert('XSS');//</con:parameterExposureStrings><con:parameterExposureStrings>&lt;/TITLE>&lt;SCRIPT>alert("XSS");&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;INPUT TYPE="IMAGE" SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BODY ONLOAD=alert('XSS')></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG DYNSRC="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG LOWSRC="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BGSOUND SRC="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BR SIZE="&amp;{alert('XSS')}"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LAYER SRC="http://soapui.org/scriptlet.html">&lt;/LAYER></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LINK REL="stylesheet" HREF="javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;LINK REL="stylesheet" HREF="http://soapui.org/xss.css"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>@import'http://soapui.org/xss.css';&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="Link" Content="&lt;http://soapui.org/xss.css>; REL=stylesheet"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>BODY{-moz-binding:url("http://soapui.org/xssmoz.xml#xss")}&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;XSS STYLE="behavior: url(xss.htc);"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>li {list-style-image: url("javascript:alert('XSS')");}&lt;/STYLE>&lt;UL>&lt;LI>XSS</con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC='vbscript:msgbox("XSS")'></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="mocha:[code]"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="livescript:[code]"></con:parameterExposureStrings><con:parameterExposureStrings>ï¿½scriptï¿½alert(ï¿½XSSï¿½)ï¿½/scriptï¿½</con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0;url=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="refresh" CONTENT="0; URL=http://;URL=javascript:alert('XSS');"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IFRAME SRC="javascript:alert('XSS');">&lt;/IFRAME></con:parameterExposureStrings><con:parameterExposureStrings>&lt;FRAMESET>&lt;FRAME SRC="javascript:alert('XSS');">&lt;/FRAMESET></con:parameterExposureStrings><con:parameterExposureStrings>&lt;TABLE BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;TABLE>&lt;TD BACKGROUND="javascript:alert('XSS')"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image: url(javascript:alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image:\0075\0072\006C\0028'\006a\0061\0076\0061\0073\0063\0072\0069\0070\0074\003a\0061\006c\0065\0072\0074\0028.1027\0058.1053\0053\0027\0029'\0029"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="background-image: url(&amp;#1;javascript:alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;DIV STYLE="width: expression(alert('XSS'));"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>@im\port'\ja\vasc\ript:alert("XSS")';&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG STYLE="xss:expr/*XSS*/ession(alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;XSS STYLE="xss:expression(alert('XSS'))"></con:parameterExposureStrings><con:parameterExposureStrings>exp/*&lt;A STYLE='no\xss:noxss("*//*");xss:&amp;#101;x&amp;#x2F;*XSS*//*/*/pression(alert("XSS"))'></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE TYPE="text/javascript">alert('XSS');&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE>.XSS{background-image:url("javascript:alert('XSS')");}&lt;/STYLE>&lt;A CLASS=XSS>&lt;/A></con:parameterExposureStrings><con:parameterExposureStrings>&lt;STYLE type="text/css">BODY{background:url("javascript:alert('XSS')")}&lt;/STYLE></con:parameterExposureStrings><con:parameterExposureStrings>&lt;!--[if gte IE 4]>&lt;SCRIPT>alert('XSS');&lt;/SCRIPT>&lt;![endif]--></con:parameterExposureStrings><con:parameterExposureStrings>&lt;BASE HREF="javascript:alert('XSS');//"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;OBJECT TYPE="text/x-scriptlet" DATA="http://soapui.org/scriptlet.html">&lt;/OBJECT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389>&lt;param name=url value=javascript:alert('XSS')>&lt;/OBJECT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;EMBED SRC="http://soapui.org/xss.swf" AllowScriptAccess="always">&lt;/EMBED></con:parameterExposureStrings><con:parameterExposureStrings>&lt;EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" AllowScriptAccess="always">&lt;/EMBED></con:parameterExposureStrings><con:parameterExposureStrings>a="get";b="URL(\"";c="javascript:";d="alert('XSS');\")";eval(a+b+c+d);</con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<XML ID=I><X><C><![CDATA[<IMG SRC="javas]]]]>><![CDATA[<![CDATA[cript:alert('XSS');">]]]]>><![CDATA[</C></X></xml><SPAN DATASRC=#I DATAFLD=C DATAFORMATAS=HTML></SPAN>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<XML ID="xss"><I><B>&lt;IMG SRC="javas<!-- -->cript:alert('XSS')"&gt;</B></I></XML><SPAN DATASRC="#xss" DATAFLD="B" DATAFORMATAS="HTML"></SPAN>]]></con:parameterExposureStrings><con:parameterExposureStrings><![CDATA[<HTML><BODY><?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"><?import namespace="t" implementation="#default#time2"><t:set attributeName="innerHTML" to="XSS&lt;SCRIPT DEFER&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;"></BODY></HTML>]]></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT SRC="http://soapui.org/xss.jpg">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;? echo('&lt;SCR)';echo('IPT>alert("XSS")&lt;/SCRIPT>'); ?></con:parameterExposureStrings><con:parameterExposureStrings>&lt;IMG SRC="http://soapui.org/somecommand.php?somevariables=maliciouscode"></con:parameterExposureStrings><con:parameterExposureStrings>Redirect 302 /a.jpg http://soapui.org/admin.asp&amp;deleteuser</con:parameterExposureStrings><con:parameterExposureStrings>&lt;META HTTP-EQUIV="Set-Cookie" Content="USERID=&amp;lt;SCRIPT&amp;gt;alert('XSS')&amp;lt;/SCRIPT&amp;gt;"></con:parameterExposureStrings><con:parameterExposureStrings>&lt;HEAD>&lt;META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=UTF-7"> &lt;/HEAD>+ADw-SCRIPT+AD4-alert('XSS');+ADw-/SCRIPT+AD4-</con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT =">" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">" '' SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT "a='>'" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=`>` SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT a=">'>" SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings><con:parameterExposureStrings>&lt;SCRIPT>document.write("&lt;SCRI");&lt;/SCRIPT>PT SRC="http://soapui.org/xss.js">&lt;/SCRIPT></con:parameterExposureStrings></con:config><con:assertion type="CrosSiteScript" id="2bb6b84d-8b38-4f94-a596-8d9ce6d739ce" name="Cross Site Scripting Detection"><con:configuration/></con:assertion><con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/><con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:parameters label="Test" parameterName="Request" xpath="" checked="true"/></con:checkedParameters><con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:strategy>ONE_BY_ONE</con:strategy><con:delay>100</con:delay></con:executionStrategy></con:testStepSecurityScan></con:testStepSecurityTest><con:properties/></con:securityTest><con:securityTest id="c4dea0b2-8bc3-4167-a275-5c74b6a4f577" name="SecurityTest 2" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:testCase id="db7f0717-818f-45c0-ac1e-29ab36954df9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subtract" searchProperties="true" disabled="true"><con:settings/><con:testStep type="request" name="SubFunction" id="a7a01e15-0fe8-4c7f-9fad-ac5244403932"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>3</tem:a>\r
+         <tem:b>1</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match"><con:configuration><path/><content/><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="46f8ece9-f97d-42ad-88df-47ead89a8340" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="374a325e-6690-4369-9611-82944afa179e" name="ClassroomLive"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="0d6cb5df-e502-46ed-82e2-cd3ae69a3b03" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="AddFunction" searchProperties="true"><con:settings/><con:testStep type="request" name="AddRequest" id="41c11cbf-2355-44a5-a0fe-038b56533c48"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Add</con:operation><con:request name="AddRequest" id="77b776c5-cb08-422a-b84b-e16917453010"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Add>\r
+         <tem:a>${#TestSuite#a}</tem:a>\r
+         <tem:b>${#Project#y}</tem:b>\r
+      </tem:Add>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="b070c7a8-0835-4647-b8b0-2ad4b594ecba"/><con:assertion type="Simple Contains" id="13c010bb-9597-45fd-9a73-793ff0e9a098" name="Contains"><con:configuration><token>5</token><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="20761832-a581-4e6a-ad77-c0abcc015ae5" name="Not Contains"><con:configuration><token/><ignoreCase>false</ignoreCase><useRegEx>false</useRegEx></con:configuration></con:assertion><con:assertion type="Simple NotContains" id="1416c7f2-b6dc-45a5-8560-36998d8464ab"><con:configuration/></con:assertion><con:assertion type="Valid HTTP Status Codes" id="ec535543-b495-49ad-91cd-4d19b52ef8b2" name="Valid HTTP Status Codes"><con:configuration><codes>200</codes></con:configuration></con:assertion><con:assertion type="Response SLA Assertion" id="47fa2f8d-3ae6-4ee7-b70d-8524d0f3fe47" name="Response SLA"><con:configuration><SLA>1000</SLA></con:configuration></con:assertion><con:assertion type="Sensitive Information Exposure" id="ee236bba-a0af-4eab-b3f7-6695988902b8" name="Sensitive Information Exposure"><con:configuration><AssertionSpecificExposureList>random###Creds</AssertionSpecificExposureList><IncludeProjectSpecific>true</IncludeProjectSpecific><IncludeGlobal>true</IncludeGlobal></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="properties" name="AddFunctionProperties" id="b1eec0a8-b75e-4002-9c76-ad8b9516b35b"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>first</con:name><con:value>122</con:value></con:property><con:property><con:name>second</con:name><con:value/></con:property></con:properties></con:config></con:testStep><con:properties><con:property><con:name>number1</con:name><con:value>102</con:value></con:property><con:property><con:name>number2</con:name><con:value>20</con:value></con:property></con:properties><con:securityTest id="ac4f3ac0-79b0-47a0-8413-3671620777d7" name="SecurityTest 1" failOnError="true"><con:settings/><con:properties/></con:securityTest></con:testCase><con:testCase id="b5fdb0c3-2e29-4d1a-9230-e3022bd80f8d" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Subtract" searchProperties="true"><con:settings/><con:testStep type="request" name="SubFunction" id="6420adfa-83fb-407f-b6ca-9876f5c19877"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap12</con:interface><con:operation>Subtract</con:operation><con:request name="SubFunction" id="34eeaa75-1614-4d32-8d79-43dcc4fb642c"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tem="http://tempuri.org/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tem:Subtract>\r
+         <tem:a>3</tem:a>\r
+         <tem:b>1</tem:b>\r
+      </tem:Subtract>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:assertion type="SOAP Response" id="826537c8-66f0-4d82-a4aa-6a4b4119c455"/><con:assertion type="Schema Compliance" id="3d92b49d-3bfb-4137-8a29-495bd8c31443"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="be1623ac-50b3-418a-a122-a30b76eb02ba"/><con:assertion type="XPath Match" id="34f32414-0094-4286-bb27-6f5ee898a406" name="XPath Match"><con:configuration><path/><content/><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>true</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest id="8b360324-7f78-4934-aa22-ec342b46c5a1" name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties><con:property><con:name>a</con:name><con:value>2</con:value></con:property><con:property><con:name>b</con:name><con:value>1</con:value></con:property></con:properties></con:testSuite><con:testSuite id="f1f47136-009e-4b4a-8a72-59fb9cd2397f" name="PropTransfers"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="56742b3a-d19b-4089-b41b-a16363010cf0" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Calculator_x0020_Web_x0020_ServiceSoap TestSuite" searchProperties="true"><con:settings/><con:testStep type="request" id="f717b1f6-1cec-457a-b6dc-32268fbf4c89" name="Add"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="2cb0b199-1e60-4176-9d47-224fb0c6f58f"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Add>\r
+         <tem:a>1</tem:a>\r
+         <tem:b>2</tem:b>\r
+      </tem:Add>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/Add" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="transfer" name="Property Transfer" id="60d2b995-0ab6-4d8c-a650-1cf4d421b7d3"><con:settings/><con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AddResult</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Add</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddResult</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Subtract</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:a
+</con:targetPath><con:upgraded>true</con:upgraded></con:transfers><con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false"><con:name>AddResult2</con:name><con:sourceType>Response</con:sourceType><con:sourceStep>Add</con:sourceStep><con:sourcePath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:AddResult</con:sourcePath><con:targetType>Request</con:targetType><con:targetStep>Subtract</con:targetStep><con:targetPath>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:b</con:targetPath><con:upgraded>true</con:upgraded></con:transfers></con:config></con:testStep><con:testStep type="request" id="45e416ba-53a5-400a-a2e5-cb0582ddc50a" name="Subtract"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Subtract</con:operation><con:request name="Subtract" id="bb665195-9f87-4bc3-bfe3-7a78d853148b"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:Subtract>
+         <tem:a>3</tem:a>
+         <tem:b>?</tem:b>
+      </tem:Subtract>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig action="http://tempuri.org/Subtract"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite id="77d9664b-e2f5-445f-b2f8-58c8055f3ead" name="GroovyTestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b25b019e-7fbc-4799-ab1d-57e3d597a14c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Calculator_x0020_Web_x0020_ServiceSoap TestSuite" searchProperties="true"><con:settings/><con:testStep type="request" id="0709f8f8-b625-4efc-b0fc-acf639bef190" name="Add"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="cfd52e67-4994-4ce6-9e5f-872a11e08333"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Add>\r
+         <tem:a>2</tem:a>\r
+         <tem:b>3</tem:b>\r
+      </tem:Add>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="GroovyScriptAssertion" id="ddd04a6b-f134-4471-9642-4d704e9fbe0e" name="Script Assertion"><con:configuration><scriptText>//Define Groovy Utils and holder for validating the XML reponse content
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def holder = groovyUtils.getXmlHolder(messageExchange.responseContent)
+
+def resHolder = groovyUtils.getXmlHolder(messageExchange.requestContent)
+
+
+//Define the NameSpace
+holder.namespaces["ns1"] = "http://tempuri.org/"
+resHolder.namespaces["ns1"] = "http://tempuri.org/"
+
+def enteredValueA= resHolder.getNodeValue("//ns1:a")
+//Get the Value of the Node 'AddResult' and assign to a variable
+def addResult = holder.getNodeValue("//ns1:AddResult")
+
+//print the value of the result in the Output panel
+log.info "The result value for integers is " + addResult
+
+//Comparing the value to print 'Pass' or 'Fail'
+if(addResult=="46")
+{ log.info "Pass" }
+else
+{ log.info "fail"}</scriptText></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/Add" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a8739943-268c-4733-be65-0c0cbb0f05b0" name="Subtract"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Subtract</con:operation><con:request name="Subtract" id="8474e921-1cf0-48b0-8918-e37cdf99a573"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Subtract>\r
+         <tem:a>1</tem:a>\r
+         <tem:b>1</tem:b>\r
+      </tem:Subtract>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/Subtract" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="Conditional Goto" id="2917917b-5b04-4c65-8670-9b455b63d17a"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition 1</con:name><con:type>XPATH</con:type><con:expression>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:SubtractResponse[1]/ns1:SubtractResult[1]=0</con:expression><con:targetStep>Add</con:targetStep></con:condition></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>x</con:name><con:value>111</con:value></con:property><con:property><con:name>y</con:name><con:value>0</con:value></con:property></con:properties><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

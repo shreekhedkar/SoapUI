@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="2250a397-a227-48ce-8950-830af92383dd" name="Security Testing CalculatorTesting12" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="2250a397-a227-48ce-8950-830af92383ddfileName">Security-Testing-CalculatorTesting12</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

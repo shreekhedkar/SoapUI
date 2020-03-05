@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testCase id="b25b019e-7fbc-4799-ab1d-57e3d597a14c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Calculator_x0020_Web_x0020_ServiceSoap TestSuite" searchProperties="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="b25b019e-7fbc-4799-ab1d-57e3d597a14cfileName">Calculator_x0020_Web_x0020_ServiceSoap-TestSuite</con:setting></con:settings><con:testStep type="request" id="0709f8f8-b625-4efc-b0fc-acf639bef190" name="Add"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Add</con:operation><con:request name="Add" id="cfd52e67-4994-4ce6-9e5f-872a11e08333"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Add>\r
+         <tem:a>2</tem:a>\r
+         <tem:b>3</tem:b>\r
+      </tem:Add>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:assertion type="GroovyScriptAssertion" id="ddd04a6b-f134-4471-9642-4d704e9fbe0e" name="Script Assertion"><con:configuration><scriptText>//Define Groovy Utils and holder for validating the XML reponse content
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def holder = groovyUtils.getXmlHolder(messageExchange.responseContent)
+
+def resHolder = groovyUtils.getXmlHolder(messageExchange.requestContent)
+
+
+//Define the NameSpace
+holder.namespaces["ns1"] = "http://tempuri.org/"
+resHolder.namespaces["ns1"] = "http://tempuri.org/"
+
+def enteredValueA= resHolder.getNodeValue("//ns1:a")
+//Get the Value of the Node 'AddResult' and assign to a variable
+def addResult = holder.getNodeValue("//ns1:AddResult")
+
+//print the value of the result in the Output panel
+log.info "The result value for integers is " + addResult
+
+//Comparing the value to print 'Pass' or 'Fail'
+if(addResult=="46")
+{ log.info "Pass" }
+else
+{ log.info "fail"}</scriptText></con:configuration></con:assertion><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/Add" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" id="a8739943-268c-4733-be65-0c0cbb0f05b0" name="Subtract"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Calculator_x0020_Web_x0020_ServiceSoap</con:interface><con:operation>Subtract</con:operation><con:request name="Subtract" id="8474e921-1cf0-48b0-8918-e37cdf99a573"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://ecs.syr.edu/faculty/fawcett/Handouts/cse775/code/calcWebService/Calc.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tem:Subtract>\r
+         <tem:a>1</tem:a>\r
+         <tem:b>1</tem:b>\r
+      </tem:Subtract>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://tempuri.org/Subtract" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="goto" name="Conditional Goto" id="2917917b-5b04-4c65-8670-9b455b63d17a"><con:settings/><con:config xsi:type="con:GotoStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:condition><con:name>Condition 1</con:name><con:type>XPATH</con:type><con:expression>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns1='http://tempuri.org/';
+//ns1:SubtractResponse[1]/ns1:SubtractResult[1]=0</con:expression><con:targetStep>Add</con:targetStep></con:condition></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase>

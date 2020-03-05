@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="f1f47136-009e-4b4a-8a72-59fb9cd2397f" name="PropTransfers" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="f1f47136-009e-4b4a-8a72-59fb9cd2397ffileName">PropTransfers</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

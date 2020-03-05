@@ -1,0 +1,14 @@
+CalculatorSoap12\Add.xml
+CalculatorSoap12\Divide.xml
+CalculatorSoap12\Multiply.xml
+CalculatorSoap12\Subtract.xml
+CalculatorSoap\Add.xml
+CalculatorSoap\Divide.xml
+CalculatorSoap\Multiply.xml
+CalculatorSoap\Subtract.xml
+SecurityTest-1.xml
+CalculatorTestSuite\Add-TestCase.xml
+CalculatorTestSuite\Divide-TestCase.xml
+CalculatorTestSuite\Multiply-TestCase.xml
+CalculatorTestSuite\Subtract-TestCase.xml
+LoadTest-1.xml

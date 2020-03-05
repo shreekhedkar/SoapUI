@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:testSuite id="1abaa6ea-9d12-46e0-a109-1b3ca633c5cd" name="CalculatorTesting12" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="1abaa6ea-9d12-46e0-a109-1b3ca633c5cdfileName">CalculatorTesting12</con:setting></con:settings><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:securityTest id="0a232144-2025-4759-ab85-4fca5e78aed9" testCaseId="be59f007-6e3e-460c-8864-5225a6cfbb91" name="SecurityTest 1" failSecurityTestOnScanErrors="true" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="0a232144-2025-4759-ab85-4fca5e78aed9fileName">SecurityTest-1-1-2</con:setting></con:settings><con:properties/><con:reportParameters/></con:securityTest>
